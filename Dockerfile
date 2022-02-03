@@ -3,6 +3,7 @@ FROM ubuntu:20.04
 # Environment
 ENV TZ="Europe/Berlin"
 ENV ARI_ALLOWED_ORIGINS="*"
+ENV DEBUG=0
 
 # install packages
 RUN apt-get update && \

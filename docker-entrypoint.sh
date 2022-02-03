@@ -11,4 +11,9 @@ else
    echo "ARI credentials not provided"
 fi
 
-asterisk -U asterisk -G asterisk -f
+if $DEBUG; then
+   echo "DEBUG enabled" 
+   asterisk -vvvv -U asterisk -G asterisk -f
+else 
+   asterisk -U asterisk -G asterisk -f
+fi
