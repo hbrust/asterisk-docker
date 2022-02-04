@@ -1,7 +1,9 @@
 #!/bin/bash
 
 # ARI add origins
-echo "allowed_origins=${ARI_ALLOWED_ORIGINS}" >> /etc/asterisk/ari.conf
+if ! grep -q "allowed_origins=${ARI_ALLOWED_ORIGINS}" /etc/asterisk/ari.conf; then
+   echo "allowed_origins=${ARI_ALLOWED_ORIGINS}" >> /etc/asterisk/ari.conf
+fi
 
 # ARI generate user
 if [ -n "${ARI_USER}" ] && [ -n "${ARI_PASSWORD}" ]; then
